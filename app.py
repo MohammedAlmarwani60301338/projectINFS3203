@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-
+from services.db import save_note, list_notes
+from services.ai import generate_summary
 
 app = Flask(__name__)
 
@@ -13,6 +14,7 @@ def home():
 @app.route("/health")
 def health():
     return {"status": "ok", "project": "projectINFS3203"}
+
 
 @app.route("/notes", methods=["POST"])
 def create_note():

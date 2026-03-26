@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from services.db import save_note, list_notes
-from services.ai import generate_summary
 
 app = Flask(__name__)
 

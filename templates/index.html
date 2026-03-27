@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projectINFS3203</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>projectINFS3203</h1>
+        <p class="subtitle">INFS3203 Project</p>
+        <p class="student-id">Student ID / Team Name Here</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <div class="card">
+            <form action="/notes" method="post">
+                <label for="text">Study Topic / Notes</label>
+                <textarea name="text" id="text" rows="6" placeholder="Enter your study notes here..."></textarea>
+                <button type="submit">Save Note</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <form action="/ai/summary" method="post">
+                <label for="ai-text">Generate AI Summary</label>
+                <textarea name="text" id="ai-text" rows="6" placeholder="Enter text to summarize..."></textarea>
+                <button type="submit">Generate Summary</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>AI Result</h2>
+            {% if ai_result %}
+                <pre>{{ ai_result }}</pre>
+            {% else %}
+                <p>No AI result yet.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+    <h2>Saved Notes</h2>
+    {% if notes %}
+        <ul class="notes-list">
+            {% for note in notes %}
+                <li class="note-item">
+                    <span>{{ note.text }}</span>
+                    <form action="/notes/delete/{{ note._id }}" method="post" class="delete-form">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No notes saved yet.</p>
+    {% endif %}
+</div>
+    </div>
+</body>
+</html>

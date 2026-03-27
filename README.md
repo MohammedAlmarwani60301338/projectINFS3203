@@ -20,10 +20,8 @@ The app uses Gemini to summarize study notes into short student-friendly bullet 
 - GitHub Actions
 - Render
 
-## Team Roles
-- Member 1: Backend + Database
-- Member 2: AI + Documentation + Testing
-- Member 3: Frontend + DevOps
+## Team Approach
+- We are using a kanban style where we are fixing and devloping as we go.
 
 ## Timeline
 - Week 11: setup, proposal, app skeleton, DB connection, Dockerfile

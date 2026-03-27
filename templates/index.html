@@ -42,17 +42,22 @@
         </div>
 
         <div class="card">
-            <h2>Saved Notes</h2>
-            {% if notes %}
-                <ul>
-                    {% for note in notes %}
-                        <li>{{ note.text }}</li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No notes saved yet.</p>
-            {% endif %}
-        </div>
+    <h2>Saved Notes</h2>
+    {% if notes %}
+        <ul class="notes-list">
+            {% for note in notes %}
+                <li class="note-item">
+                    <span>{{ note.text }}</span>
+                    <form action="/notes/delete/{{ note._id }}" method="post" class="delete-form">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No notes saved yet.</p>
+    {% endif %}
+</div>
     </div>
 </body>
 </html>

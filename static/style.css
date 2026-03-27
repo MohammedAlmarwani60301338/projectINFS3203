@@ -59,3 +59,26 @@ button {
 pre {
     white-space: pre-wrap;
 }
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.note-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.delete-button {
+    padding: 8px 12px;
+}
